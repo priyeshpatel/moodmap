@@ -10,6 +10,11 @@ overall mood) and then plotted on a map according to the location from which
 they were tweeted from. Goverment data for deprivation is then overlayed on 
 top of this.
 
+## Authors
+
+ - Priyesh Patel
+ - Daniel Saul
+
 ## Setting up
 
 ### Dependencies
