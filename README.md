@@ -1,7 +1,7 @@
-# moodmap
+# MoodMap
 
-##An online application which correlates sentiment data from Twitter with data 
-from the government.  
+## An online application which correlates sentiment data from Twitter with data 
+from the government. #
 
 [visit the site](http://themoodmap.co.uk/)
 
