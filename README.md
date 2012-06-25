@@ -38,7 +38,7 @@ foreman export supervisor ./
 
 This resulting file will need to be edited so that `/bin/sh venv_run.sh` is run
 as the command and then added to the system's Supervisor directory (often
-`/etc/supervisor/conf.d/`.
+`/etc/supervisor/conf.d/`).
 
 Supervisor can then be reloaded with `sudo supervisorctl reload`.
 
