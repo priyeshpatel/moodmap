@@ -23,11 +23,11 @@ class StreamWatcherListener(tweepy.StreamListener):
         self.callback(status)
 
     def on_error(self, status_code):
-        print status_code
+        log("Twitter Error: {0}".format(status_code))
         return True
 
     def on_timeout(self):
-        print "snoozing"
+        log("Twitter Snoozing")
 
 def start(callback):
     stream = tweepy.Stream(auth, StreamWatcherListener(callback))

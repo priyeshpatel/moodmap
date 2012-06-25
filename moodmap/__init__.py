@@ -25,9 +25,9 @@ def _save_tweet(id, username, tweet, latitude, longitude, timestamp, rating):
         "rating": rating
     }
     if db_tweets.save_doc(doc):
-        print "Doc #{0} saved!".format(id)
+        log("Doc #{0} saved!".format(id))
     else:
-        print "Failed to save doc #{0}".format(id)
+        log("Failed to save doc #{0}".format(id))
 
 def start():
     sentiment.setup(_get_data())
