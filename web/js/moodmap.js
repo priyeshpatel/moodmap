@@ -121,7 +121,7 @@ $(document).ready( function() {
     setTimeout(function() {
         if( $('#keyimg').is(":visible"))
             $('#keyimg').slideToggle();
-    }, 1500);
+    }, 3000);
 
     $('#about').click(function() {
         $('#about-text').slideToggle();

@@ -94,7 +94,7 @@ p {
     height:100%;
     margin:0 50px;
     border:1px solid #e6e6e6;
-    z-index: 99;
+    z-index: 100;
 }
 
 #footer {
@@ -102,7 +102,7 @@ p {
     bottom:0;
     background:#f2f2f2;
     width:100%;
-    z-index: 100;
+    z-index: 101;
 }
 
 #inner-footer {
@@ -149,6 +149,7 @@ p {
     padding:20px 20px 8px 0;
     line-height:18px;
     display:none;
+    z-index: 200;
 }
 
 #key {
@@ -170,6 +171,7 @@ p {
     top:105px;
     left:50px;
     background:#f2f2f2;
+    z-index: 201;
 }
 
 #keyimg .option {
