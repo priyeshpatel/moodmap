@@ -123,7 +123,7 @@ $(document).ready( function() {
             $('#keyimg').slideToggle();
     }, 3000);
 
-    $('#about').click(function() {
+    $('#what-is-moodmap').click(function() {
         $('#about-text').slideToggle();
     });
 
