@@ -48,7 +48,7 @@ function plotIncoming(data) {
     for (var i = 0; i < data.results.length; i++) {
         var tweet = data.results[i].doc;
         plot(tweet, true);
-        console.log("Plotted (polling) => " + tweet.timestamp);
+        //console.log("Plotted (polling) => " + tweet.id);
     }
 }
 
@@ -56,7 +56,7 @@ function plotStatic(data) {
     for (var i = data.rows.length - 1; i > 0; i--) {
         var tweet = data.rows[i].doc;
         plot(tweet, false);
-        console.log("Plotted (static) => " + tweet.timestamp);
+        //console.log("Plotted (static) => " + tweet.id);
     }
     
     $('#loader').remove();
