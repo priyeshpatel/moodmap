@@ -1,0 +1,69 @@
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery.couch.js"></script>
+<script>
+
+    $(document).ready(function() {
+        var happy = 0;
+        var neutral = 0;
+        var sad = 0;
+
+        $.couch.db("tweets").changes(0, {include_docs: true}).onChange(function(data) {
+            for (var i = 0; i< data.results.length; i++) {
+                var status = data.results[i].doc;
+                var text = "";
+                var color = "";
+
+                if (status.rating > 7) {
+                    color = "green";
+                    happy++;
+                } else if (status.rating < 5) {
+                    color = "red";
+                    sad++;
+                } else {
+                    color = "grey";
+                    neutral++;
+                }
+
+                text += '<p style="color: ' + color + ';">';
+                text += status.tweet;
+                text += ' <small><a href="http://twitter.com/' +
+                        status.username + '/status/' + status.id + 
+                        '" target="_blank">';
+                text += 'link';
+                text += '</a></small>';
+                text += '</p>';
+
+                $("#main").prepend(text);
+
+                update();
+            }
+        });
+
+        function update() {
+            $("#happy span").text(happy);
+            $("#neutral span").text(neutral);
+            $("#sad span").text(sad);
+        }
+    });
+
+</script>
+
+<h1>The Mood Map</h1>
+
+<div id="stats" style="text-align: right; float: right; padding: 10px;">
+    <p id="happy" style="color: green;">
+        <span style="font-weight: bold;">0</span> happy statuses
+    </p>
+
+    <p id="neutral" style="color: grey;">
+        <span style="font-weight:bold;">0</span> neutral statuses
+    </p>
+
+    <p id="sad" style="color: red;">
+        <span style="font-weight:bold;">0</span> sad statuses
+    </p>
+</div>
+
+<div id="main">
+
+</div>

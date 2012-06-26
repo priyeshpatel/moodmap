@@ -1,1 +1,77 @@
-themoodmap.co.uk
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8" />
+
+        <title>MoodMap - Correlating Sentiment Data from Tweets with Deprivation Data from the Government</title>
+
+        <!-- Meta -->
+        <meta name="description" content="Moodmap is an online application 
+        which compares data from Twitter with data from the government to see 
+        if the mood of Twitter users has any correlation with deprivation." />
+        <meta name="keywords" content="mood, map, twitter, sentiment, analysis, 
+        deprivation, correlation, pattern, priyesh, patel, daniel, saul" />
+        <meta name="author" content="Priyesh Patel & Daniel Saul" />
+        <meta name="copyright" content="Copyright P Patel and D Saul" />
+        <meta name="robots" content="index, follow" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" /> 
+
+        <link href="css/moodmap.css" media="screen, projection" rel="stylesheet" type="text/css" />
+
+        <script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
+        <script type="text/javascript" src="js/jquery.couch.js"></script>
+        <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script type="text/javascript" src="js/moodmap.js"></script>
+
+        <script type="text/javascript">
+            var _gaq = _gaq || [];
+            _gaq.push(['_setAccount', 'UA-24959927-1']);
+            _gaq.push(['_trackPageview']);
+            (function() {
+                 var ga = document.createElement('script'); 
+                 ga.type = 'text/javascript'; ga.async = true;
+                 ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+                 var s = document.getElementsByTagName('script')[0]; 
+                 s.parentNode.insertBefore(ga, s);
+            })();
+        </script>
+     </head>
+
+     <body>
+
+         <div id="heading"><div id="inner-heading"><h1>MoodMap</h1></div></div>
+
+         <div id="loader"></div>
+
+         <div id="map"></div>
+
+         <div id="footer">
+             <div id="inner-footer">
+                 <div><p id="about">What is MoodMap?</p></div>
+                 <p>
+                     Created by <a href="http://pexat.com/" target="_blank">Priyesh Patel</a> and <a href="http://dansaul.co.uk/" target="_blank">Daniel Saul</a>
+                 </p>
+             </div>
+         </div>
+
+         <div id="about-text">
+             <h3>What is MoodMap?</h3>
+             <p>Moodmap is an online application which correlates data from 
+             Twitter with data from the government. Tweets are put through 
+             sentiment analysis (to assess the overall mood) and then plotted 
+             on a map according to the location from which they were tweeted 
+             from. Goverment data for deprivation is then overlayed on top of 
+             this.</p>
+             <p>Created by <a href="http://pexat.com/" target="_blank">Priyesh Patel</a> &amp; <a href="http://dansaul.co.uk/" target="_blank">Daniel Saul</a>.</p>
+         </div>
+
+         <h3 id="key">Key&raquo;</h3>
+         <div id="keyimg">
+             <p><img src="img/key.png" alt="Key" /></p>
+             <p class="option">Toggle Tweets: <input type="checkbox" id="tweetData" /></p>
+             <p class="option">Toggle Government Data: <input type="checkbox" id="govData" /></p>
+         </div>
+
+     </body>
+ </html>

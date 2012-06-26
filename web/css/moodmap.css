@@ -1,0 +1,175 @@
+/*
+ * themoodmap.co.uk CSS
+ * Copyright (c) Priyesh Patel & Daniel Saul
+ */
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+body {
+    margin:0;
+    padding:0;
+    font-family:sans-serif;
+    height:100%;
+    color:#535353;
+    background:url('../img/bg_top.png') repeat-x #f2f2f2;
+}
+
+a, a:link, a:visited {
+    color:#2c506c;
+    text-decoration:none;
+}
+
+a:hover, a:focus, a:active {
+    color:#67a0cc;
+}
+
+h1 {
+    font-size:48px;
+}
+
+h1,h2,h3,h4,h5,h6 {
+    margin-bottom:12px;
+}
+
+p {
+    font-size:12px;
+    margin-bottom:10px;
+}
+
+#heading {
+    height:101px;
+    padding-top:4px;
+}
+
+#inner-heading {
+    text-indent:-9999px;
+    width:184px;
+    height:97px;
+    background:url('../img/heading.png') no-repeat top center;
+    margin:auto;
+}
+
+#map {
+    height:100%;
+    margin:0 50px;
+    border:1px solid #e6e6e6;
+}
+
+#footer {
+    position:absolute;
+    bottom:0;
+    background:#f2f2f2;
+    width:100%;
+}
+
+#inner-footer {
+    padding:8px 50px 8px 8px;
+}
+
+#inner-footer p {
+    margin-bottom:0;
+}
+
+#inner-footer > p {
+    text-align:right;
+}
+
+#inner-footer p#about {
+    cursor:pointer;
+    float:left;
+    margin-left:42px;
+    color:#2c506c;
+}
+
+#inner-footer p#about:hover {
+    color:#67a0cc;
+}
+
+#loader {
+    height:35px;
+    width:35px;
+    background:url('../img/loader.gif') no-repeat 50% 50% #f2f2f2;
+    padding:10px;
+    position:absolute;
+    top:105px;
+    left:50%;
+    margin-left:-28px;
+    z-index:999;
+}
+
+#about-text {
+    width:237px;
+    position:absolute;
+    background:#f2f2f2;
+    bottom:28px;
+    left:50px;
+    padding:20px 20px 8px 0;
+    line-height:18px;
+    display:none;
+}
+
+#key {
+    position:absolute;
+    top:107px;
+    left:7px;
+    cursor:pointer;
+    font-size:14px;
+    color:#2c506c;
+}
+
+#key:hover {
+    color:#67a0cc;
+}
+
+#keyimg {
+    display:none;
+    position:absolute;
+    top:105px;
+    left:50px;
+    background:#f2f2f2;
+}
+
+#keyimg .option {
+    margin-left:15px;
+}
