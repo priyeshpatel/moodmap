@@ -7,10 +7,13 @@ var map;
 var tweets = [];
 var tweetsVisible = true;
 var govFusion;
-var tweetInfo = new google.maps.InfoWindow({maxWidth:300});
+var tweetInfo;
 var db_name = "tweets";
 var db, view, changes;
 
+/*
+ * Use rating to determine colour of tweet icon.
+ */
 function getTweetIcon(rating) {
     var png = "img/";
 
@@ -25,6 +28,9 @@ function getTweetIcon(rating) {
     return png;
 }
 
+/*
+ * Plot a point given a tweet object.
+ */
 function plot(tweet, animate) {
     var png = getTweetIcon(tweet.rating);
 
@@ -44,6 +50,9 @@ function plot(tweet, animate) {
     tweets.push(tweetMarker);
 }
 
+/*
+ * Plot a point from the _changes API.
+ */
 function plotIncoming(data) {
     for (var i = 0; i < data.results.length; i++) {
         var tweet = data.results[i].doc;
@@ -52,6 +61,9 @@ function plotIncoming(data) {
     }
 }
 
+/*
+ * Plot a point from the history.
+ */
 function plotStatic(data) {
     for (var i = data.rows.length - 1; i > 0; i--) {
         var tweet = data.rows[i].doc;
@@ -59,6 +71,7 @@ function plotStatic(data) {
         //console.log("Plotted (static) => " + tweet.id);
     }
     
+    // Enable the interface.
     $('#loader').remove();
     $('#govData').removeAttr('disabled');
     $('#tweetData').removeAttr('disabled');
@@ -67,6 +80,7 @@ function plotStatic(data) {
 }
 
 $(document).ready( function() {
+    // Disable the interface
     $('#govData').attr('disabled', true);
     $('#govData').attr('checked', false);
     $('#tweetData').attr('disabled', true);
@@ -78,7 +92,10 @@ $(document).ready( function() {
         mapTypeId: google.maps.MapTypeId.ROADMAP
     };
     map = new google.maps.Map(document.getElementById("map"), mapOptions);
+
+    tweetInfo = new google.maps.InfoWindow({maxWidth:300});
             
+    // Government data
     govFusion = new google.maps.FusionTablesLayer({
         query: {
             select: 'geometry',
@@ -88,6 +105,7 @@ $(document).ready( function() {
     });
 
     db = $.couch.db(db_name);
+    // Request data from the history.
     db.view('moodmap_tweets/tweets', {
         limit: 750,
         include_docs: true,
@@ -95,8 +113,10 @@ $(document).ready( function() {
         success: plotStatic
     });
 
+    // Adjust map size.
     calculateMapHeight();
 
+    // Display the controls briefly.
     $('#keyimg').slideToggle();
     setTimeout(function() {
         if( $('#keyimg').is(":visible"))
@@ -111,6 +131,7 @@ $(document).ready( function() {
         $('#keyimg').slideToggle();
     });
 
+    // Toggle government data.
     $('#govData').click(function() {
         if ($("#govData").prop("checked"))
             govFusion.setMap(map);
@@ -118,6 +139,7 @@ $(document).ready( function() {
             govFusion.setMap(null);
     });
 
+    // Toggle tweets.
     $("#tweetData").click(function() {
         if ($("#tweetData").prop("checked")) {
             tweetsVisible = true;
@@ -133,6 +155,9 @@ $(document).ready( function() {
     });
 });
 
+/*
+ * Recalculate map size.
+ */
 function calculateMapHeight() {
     var headingHeight = $('#heading').outerHeight();
     $('#map').height($(window).height() - headingHeight -2);
