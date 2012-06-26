@@ -89,7 +89,7 @@ $(document).ready( function() {
 
     db = $.couch.db(db_name);
     db.view('moodmap_tweets/tweets', {
-        limit: 1000,
+        limit: 750,
         include_docs: true,
         descending: true,
         success: plotStatic
