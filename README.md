@@ -44,6 +44,8 @@ Supervisor can then be reloaded with `sudo supervisorctl reload`.
 
 The web root should be set to `./web`.
 
+CouchDB design docs are provided in `./couchdb`.
+
 ### ANEW Dataset
 
 MoodMap utilises the ANEW (Affective Norms for English Words) dataset produced
