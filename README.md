@@ -22,7 +22,7 @@ top of this.
 All dependencies are listed in `requirements.txt`. Inside your VirtualEnv
 execute:
 
-```
+```bash
 pip install -r requirements.txt
 ```
 
@@ -32,7 +32,7 @@ It is recommended to run the MoodMap daemon with Supervisor. To do this setup
 Foreman by copying `env.example` to `.env` and filling out the details. Foreman
 can then be used to export a Supervisor configuration file:
 
-```
+```bash
 foreman export supervisor ./
 ```
 
@@ -43,6 +43,25 @@ as the command and then added to the system's Supervisor directory (often
 Supervisor can then be reloaded with `sudo supervisorctl reload`.
 
 The web root should be set to `./web`.
+
+### ANEW Dataset
+
+MoodMap utilises the ANEW (Affective Norms for English Words) dataset produced
+by the [University of Florida](http://csea.phhp.ufl.edu/media/anewmessage.html).
+The data is also available from other sources:
+http://www.manifestdensity.net/2010/06/16/anew/.
+
+The data should be imported into CouchDB and each doc should be formatted as
+such:
+
+```javascript
+{
+    "_id": XXX,
+    "_rev": XXX,
+    "word": "ball",
+    "value": 6.00
+}
+```
 
 ## License
 
