@@ -24,9 +24,7 @@ def _save_tweet(id, username, tweet, latitude, longitude, timestamp, rating):
         "timestamp": timestamp,
         "rating": rating
     }
-    if db_tweets.save_doc(doc):
-        log("Doc #{0} saved!".format(id))
-    else:
+    if not db_tweets.save_doc(doc):
         log("Failed to save doc #{0}".format(id))
 
 def start():
