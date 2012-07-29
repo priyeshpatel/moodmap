@@ -24,12 +24,26 @@ def _save_tweet(id, username, tweet, latitude, longitude, timestamp, rating):
         "timestamp": timestamp,
         "rating": rating
     }
+
     if not db_tweets.save_doc(doc):
         log("Failed to save doc #{0}".format(id))
 
 def start():
     sentiment.setup(_get_data())
     twitter.start(incoming)
+
+def clean():
+    tweets = db_tweets.view("moodmap_tweets/tweets", None, None, **{
+        "descending": True,
+        "skip": env("TWEET_CACHE")
+    })
+
+    count = tweets.count()
+
+    for tweet in tweets:
+        db_tweets.delete_doc(tweet["id"])
+
+    log("{0} tweets deleted".format(count))
 
 def incoming(tweet):
     try:

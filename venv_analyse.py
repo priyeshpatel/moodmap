@@ -8,4 +8,4 @@ MY_PATH="`( cd \"$MY_PATH\" && pwd)`"
 cd $MY_PATH
 cd $WORKING_DIR
 . $ACTIVATE_PATH
-exec python run.py
+exec python analyse.py
