@@ -33,7 +33,7 @@ Foreman by copying `env.example` to `.env` and filling out the details. Foreman
 can then be used to export a Supervisor configuration file:
 
 ```bash
-foreman export supervisor ./
+foreman export supervisord ./
 ```
 
 This resulting file will need to be edited so that `/bin/sh venv_<process>.sh`
