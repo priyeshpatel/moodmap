@@ -1,6 +1,4 @@
-APScheduler==2.0.3
 WebOb==1.2
-argparse==1.2.1
 couchdbkit==0.6.3
 http-parser==0.7.5
 nose==1.1.2
