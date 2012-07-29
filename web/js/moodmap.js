@@ -56,6 +56,9 @@ function plot(tweet, animate) {
 function plotIncoming(data) {
     for (var i = 0; i < data.results.length; i++) {
         var tweet = data.results[i].doc;
+
+        if (!tweet.id) continue;
+
         plot(tweet, true);
         //console.log("Plotted (polling) => " + tweet.id);
     }
@@ -76,7 +79,8 @@ function plotStatic(data) {
     $('#govData').removeAttr('disabled');
     $('#tweetData').removeAttr('disabled');
 
-    db.changes(data.total_rows, {include_docs:true}).onChange(plotIncoming);
+    changeListener = db.changes(null, {include_docs:true});
+    changeListener.onChange(plotIncoming);
 }
 
 $(document).ready( function() {

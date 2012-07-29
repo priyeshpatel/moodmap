@@ -7,9 +7,12 @@
         var neutral = 0;
         var sad = 0;
 
-        $.couch.db("tweets").changes(0, {include_docs: true}).onChange(function(data) {
+        $.couch.db("tweets").changes(null, {include_docs: true}).onChange(function(data) {
             for (var i = 0; i< data.results.length; i++) {
                 var status = data.results[i].doc;
+
+                if (!status.id) continue;
+
                 var text = "";
                 var color = "";
 
