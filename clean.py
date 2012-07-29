@@ -3,7 +3,7 @@ from apscheduler.scheduler import Scheduler
 
 sched = Scheduler()
 
-@sched.interval_schedule(seconds=60)
+@sched.interval_schedule(minutes=15)
 def clean():
     moodmap.clean()
 
