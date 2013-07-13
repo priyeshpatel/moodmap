@@ -1,8 +1,10 @@
 from .utils import *
 import tweepy
 
-auth = tweepy.auth.BasicAuthHandler(env("TWITTER_USERNAME"),
-        env("TWITTER_PASSWORD"))
+auth = tweepy.auth.OAuthHandler(env("TWITTER_CONSUMER_KEY"),
+        env("TWITTER_CONSUMER_SECRET"))
+auth.set_access_token(env("TWITTER_ACCESS_KEY"),
+        env("TWITTER_ACCESS_SECRET"))
 
 locations = [
     -7.93, 55.40, -0.53, 60.92,

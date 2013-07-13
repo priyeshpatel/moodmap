@@ -1,2 +1,2 @@
-analyser: python analyser.py
+analyser: python analyse.py
 cleaner: python clean.py
