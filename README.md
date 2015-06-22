@@ -15,6 +15,11 @@ top of this.
  - Priyesh Patel
  - Daniel Saul
 
+## Screenshots
+![Screenshot 1](./screenshots/moodmap-1.png)
+![Screenshot 2](./screenshots/moodmap-2.png)
+![Screenshot 3](./screenshots/moodmap-3.png)
+
 ## Setting up
 
 ### Dependencies
@@ -64,7 +69,3 @@ such:
     "value": 6.00
 }
 ```
-
-## License
-
-To be confirmed
